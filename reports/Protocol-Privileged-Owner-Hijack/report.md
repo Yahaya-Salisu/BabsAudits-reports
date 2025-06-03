@@ -41,8 +41,7 @@ contract DeltaPrimePoC is Test {
         }
     }
 
+md
+![PoC result]
+(https://github.com/user-attachments/assets/a4361e88-7296-416c-8fd6-1551ce24a7ca)
 
-
-Result:
-
-![DeltaPrimePoCResult](https://github.com/user-attachments/assets/3436464d-6d50-4440-b657-2adb23f9dbb5)
