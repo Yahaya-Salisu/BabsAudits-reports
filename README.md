@@ -6,16 +6,17 @@
 - DeFi protocols (Lending, Borrowing, Staking)
 - ERC-20, ERC-721, and ERC-1155 tokens
 - Smart contract security vulnerabilities
-- Manual auditing and automated tools (Slither, Foundry, Mythril)
+- Manual auditing and automated tools (Slither, Foundry)
 
 ### 🛠️ Tools & Frameworks
 - **Slither** for static analysis  
 - **Foundry** for property-based fuzz testing  
 - **Mythril** for symbolic execution  
-- **Remix** & **Hardhat** for contract interaction and testing  
+- **Remix** & **Foundry** for contract interaction and testing  
 
 ### 📂 Example Work
-- [reports](#) — Found Access control vulnerability in lending protocol
+- Found Access control vulnerability in lending protocol
+- Found Missing Return Value vulnerabilities in Multiple Lending Protocols
 
 ### 📫 Contact
 - WhatsApp: +2348109440946
