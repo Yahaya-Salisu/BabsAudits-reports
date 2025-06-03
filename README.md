@@ -20,7 +20,6 @@
 
 ### 📫 Contact
 - WhatsApp: +2348109440946  
-- GitHub: [@YahayaSalisu162](https://github.com/YahayaSalisu162)
 
 ### ⚠️ Fun Fact
 I love exploiting bugs more than writing code — but only ethically!
