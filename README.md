@@ -15,11 +15,11 @@
 - **Remix** & **Hardhat** for contract interaction and testing  
 
 ### 📂 Example Work
-- [Audit Report 1](#) — Found Access control vulnerability in lending protocol  
-- [Audit Lab](#) — Test environments and POCs for exploits
+- [reports](#) — Found Access control vulnerability in lending protocol
 
 ### 📫 Contact
-- WhatsApp: +2348109440946  
+- WhatsApp: +2348109440946
+- X handle: Babs_Crypto1  
 
 ### ⚠️ Fun Fact
 I love exploiting bugs more than writing code — but only ethically!
