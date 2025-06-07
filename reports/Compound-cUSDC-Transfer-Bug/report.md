@@ -15,7 +15,7 @@ Use safe wrappers from libraries like OpenZeppelin’s SafeERC20, which handles 
 
 Affected Code:
 
-https://github.com/YahayaSalisu162/compound-protocol/blob/master/contracts%2FCToken.sol#L120
+https://github.com/compound-finance/compound-protocol/blob/master/contracts%2FCToken.sol#L120
 
 
 
