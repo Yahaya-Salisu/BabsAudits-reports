@@ -1,8 +1,8 @@
-*Missing Return Value / Non-Compliant ERC20 Transfer*
+_Missing Return Value / Non-Compliant ERC20 Transfer_
 
----
 
-Summary:
+***Summary:***
+
 The contract uses transfer() or transferFrom() on non-compliant tokens such as cUSDC or cDAI, which do not correctly return a boolean value. This can lead to situations where failed transfers are treated as successful.
 
 ---
