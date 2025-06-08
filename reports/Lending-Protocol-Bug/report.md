@@ -28,7 +28,7 @@ https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/dev/main/contracts/
 **Proof of concept (POC):**
 ---
 
-// SPDX-License-Identifier: MIT
+```// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
 import "forge-std/Test.sol";
@@ -48,7 +48,7 @@ contract DeltaPrimePoC is Test {
     function test_Initialize_Targets() public {
            ISmartLoanDiamondBeacon(SmartLoanDiamondBeacon).initialize(maliciousOwner);
         }
-    }
+    }```
 
 ---
 
