@@ -32,7 +32,7 @@ https://github.com/compound-finance/compound-protocol/blob/master/contracts%2FCT
 
 ***Proof of concept (PoC)***
 
-
+```
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -62,6 +62,7 @@ emit log_named_uint("User Balance After Transfer", userBalance);
 assertEq(userBalance, 0, "Transfer failed silently but acting as it succe, missing return value!");
 }
 }
+```
 
 ---
 
