@@ -20,7 +20,7 @@ Furthermore, once the owner of the “SmartLoanDiamondBeacon” contract is hija
 
 
 
-**Vulnerability Code:**
+**Vulnerable Code:**
 
 https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/dev/main/contracts/facets/SmartLoanViewFacet.sol#L42
 
@@ -51,7 +51,7 @@ contract DeltaPrimePoC is Test {
 
 
 
-***PoC result:***
+***PoC Output:***
 
 ![DeltaPrimePoCResult](https://github.com/user-attachments/assets/3436464d-6d50-4440-b657-2adb23f9dbb5)
 
