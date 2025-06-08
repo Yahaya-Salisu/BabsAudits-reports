@@ -1,12 +1,12 @@
 **Contract hijack/Missing initialize call in SmartLoamViewFacet.sol**
----
+___
 
 _Bug Severity: High_
 
 _Target:_
 https://github.com/DeltaPrimeLabs/deltaprime-primeloans
 
-___
+---
 
 **Vulnerability Details:**
 
@@ -18,14 +18,15 @@ With ownership of the “SmartLoanDiamondBeacon” contract, the hacker can arbi
 
 Furthermore, once the owner of the “SmartLoanDiamondBeacon” contract is hijacked, there is no way for DeltaPrime to take it back or mitigate the exploit, which means the protocol is totally controlled by the hacker.
 
-
+---
 
 **Vulnerable Code:**
 
 https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/dev/main/contracts/facets/SmartLoanViewFacet.sol#L42
 
-
+---
 **Proof of concept (POC):**
+---
 
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
@@ -49,7 +50,7 @@ contract DeltaPrimePoC is Test {
         }
     }
 
-
+---
 
 ***PoC Output:***
 
