@@ -1,4 +1,4 @@
-###Missing Return Value / Non-Compliant ERC20 Transfer
+*Missing Return Value / Non-Compliant ERC20 Transfer*
 
 ---
 
