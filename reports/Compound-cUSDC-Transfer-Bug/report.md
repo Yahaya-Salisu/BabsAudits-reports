@@ -30,7 +30,7 @@ https://github.com/compound-finance/compound-protocol/blob/master/contracts%2FCT
 ---
 
 
-***Proof of concept (PoC)***
+# *Proof of concept (PoC)*
 
 ```
 // SPDX-License-Identifier: MIT
