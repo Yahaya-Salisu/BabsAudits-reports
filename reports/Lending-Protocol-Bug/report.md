@@ -1,4 +1,4 @@
-***_Contract hijack/Missing initialize call in SmartLoamViewFacet.sol_***
+*_Contract hijack/Missing initialize call in SmartLoamViewFacet.sol_*
 ___
 
 **Bug Severity: High**
