@@ -1,4 +1,4 @@
-###Contract hijack/Missing initialize call in SmartLoamViewFacet.sol###
+**Contract hijack/Missing initialize call in SmartLoamViewFacet.sol**
 
 Target:
 https://github.com/DeltaPrimeLabs/deltaprime-primeloans
