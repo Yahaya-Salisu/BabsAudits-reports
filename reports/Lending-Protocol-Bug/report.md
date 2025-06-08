@@ -1,11 +1,12 @@
-_Contract hijack/Missing initialize call in SmartLoamViewFacet.sol_
----
-###Bug Severity: High
+***_Contract hijack/Missing initialize call in SmartLoamViewFacet.sol_***
+___
 
-###Target:
+**Bug Severity: High**
+
+**Target:**
 https://github.com/DeltaPrimeLabs/deltaprime-primeloans
 
-___
+---
 
 **Vulnerability Details:**
 
