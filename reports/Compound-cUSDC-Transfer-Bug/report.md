@@ -1,4 +1,4 @@
-**Missing Return Value / Non-Compliant ERC20 Transfer**
+***_Missing Return Value / Non-Compliant ERC20 Transfer_***
 
 ---
 
@@ -65,6 +65,6 @@ assertEq(userBalance, 0, "Transfer failed silently but acting as it succe, missi
 
 ---
 
-PoC Output:
+***PoC Output:***
 
 ![PoC](https://github.com/user-attachments/assets/5077f239-7e2c-4a2e-87a0-de1a07035cb8)
