@@ -1,6 +1,8 @@
+###Contract hijack/Missing initialize call in SmartLoamViewFacet.sol
+
 Target:
 https://github.com/DeltaPrimeLabs/deltaprime-primeloans
-
+---
 Vulnerability Details:
 DeltaPrime maintains all users’ prime accounts in the pattern of “Proxy+implementation” where each prime account is a proxy pointing to the implementation contract. The implementation contract, i.e., “SmartLoanDiamondBeacon”, adheres to the EIP-2535 standard (Diamond) and can only be managed by the protocol owner. This means that if a malicious user can manage to become the owner of the "SmartLoanDiamondBeacon" contract, he can gain control over all users' Prime accounts.
 
@@ -12,12 +14,12 @@ Furthermore, once the owner of the “SmartLoanDiamondBeacon” contract is hija
 
 
 
-Vulnerability Code:
+##Vulnerability Code:
 
 https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/dev/main/contracts/facets/SmartLoanViewFacet.sol#L42
 
 
-Proof of concept (POC):
+##Proof of concept (POC):
 
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
@@ -43,7 +45,7 @@ contract DeltaPrimePoC is Test {
 
 
 
-PoC result:
+***PoC result:***
 
 ![DeltaPrimePoCResult](https://github.com/user-attachments/assets/3436464d-6d50-4440-b657-2adb23f9dbb5)
 
