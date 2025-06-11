@@ -1,4 +1,4 @@
-**A user can borrow amount beyond collateral limit in Lend-Protocol
+**A user can borrow amount beyond collateral limit in Lend-Protocol**
 
 Severity: High
 
