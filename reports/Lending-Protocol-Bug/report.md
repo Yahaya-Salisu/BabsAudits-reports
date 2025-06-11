@@ -1,36 +1,33 @@
-## **Contract hijack/Missing initialize call in SmartLoamViewFacet.sol**
+**Contract hijack/Missing initialize call in SmartLoamViewFacet.sol**
 
                
 _Bug Severity: High_
                 
----
 
-_Target:_
-https://github.com/DeltaPrimeLabs/deltaprime-primeloans
 
----
+_Target: https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/dev/main/contracts/facets/SmartLoanViewFacet.sol#L42
 
-**Vulnerability Details:**
+
+
+**Summary:**
 
 DeltaPrime maintains all users’ prime accounts in the pattern of “Proxy+implementation” where each prime account is a proxy pointing to the implementation contract. The implementation contract, i.e., “SmartLoanDiamondBeacon”, adheres to the EIP-2535 standard (Diamond) and can only be managed by the protocol owner. This means that if a malicious user can manage to become the owner of the "SmartLoanDiamondBeacon" contract, he can gain control over all users' Prime accounts.
 
 I did indeed discover such a vulnerability. this vulnerability involves a facet contract called “SmartLoanViewFacet”. This contract includes an “initialize()” function, originally designed to initialize the owner for a new prime account. However, we noticed that a hacker can directly call the “SmartLoanViewFacet::initialize()” function to hijack the owner of the “SmartLoanDiamondBeacon” contract.
 
+
+**Impact:**
+
 With ownership of the “SmartLoanDiamondBeacon” contract, the hacker can arbitrarily modify the functionalities of the implementation for all prime accounts, enabling the hacker to steal all the protocol funds, including the funds in all DeltaPrime lending pools and all Prime Accounts. The estimated total loss is >$50M. For example, the hacker can add a “freeBorrow()” function to borrow all the lending pool funds without any solvency check.
 
 Furthermore, once the owner of the “SmartLoanDiamondBeacon” contract is hijacked, there is no way for DeltaPrime to take it back or mitigate the exploit, which means the protocol is totally controlled by the hacker.
 
----
 
-**Vulnerable Code:**
 
-https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/dev/main/contracts/facets/SmartLoanViewFacet.sol#L42
-
----
 **Proof of concept (POC):**
----
 
-```// SPDX-License-Identifier: MIT
+```solidity
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
 import "forge-std/Test.sol";
