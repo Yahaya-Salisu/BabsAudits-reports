@@ -1,13 +1,13 @@
-## **Missing Return Value for Non-Compliant ERC20 Transfer**
+**Missing Return Value for Non-Compliant ERC20 Transfer**
 
 
-***Summary:***
+**Summary:**
 
 The contract uses transfer() or transferFrom() on non-compliant tokens such as cUSDC or cDAI, which do not correctly return a boolean value. This can lead to situations where failed transfers are treated as successful.
 
----
 
-***Impact:***
+
+**Impact:**
 
 - Funds may fail to transfer without reverting
 - Logic that assumes a successful transfer may proceed incorrectly.
@@ -15,24 +15,24 @@ The contract uses transfer() or transferFrom() on non-compliant tokens such as c
 
 If token is a non-compliant ERC20 like cUSDC or cDAI, the transfer may always pass even if the transfer fails, because the return value is undefined.
 
----
+
 
 ***Recommendation:***
 
 Use safe wrappers from libraries like OpenZeppelin’s SafeERC20, which handles return values safely.
 
----
+
 
 _Affected Code:_
 
 https://github.com/compound-finance/compound-protocol/blob/master/contracts%2FCToken.sol#L120
 
----
 
 
-### ***Proof of concept (PoC)***
 
-```
+**Proof of concept (PoC)**
+
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
