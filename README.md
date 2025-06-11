@@ -9,14 +9,15 @@
 - Manual auditing and automated tools (Slither, Foundry)
 
 ### 🛠️ Tools & Frameworks
-- **Slither** for static analysis  
-- **Foundry** for property-based fuzz testing  
-- **Mythril** for symbolic execution  
-- **Remix** & **Foundry** for contract interaction and testing  
+- **Slither** for static analysis 
+- **Manual Audit** for fully research
+- **Foundry** for property-based fuzz testing, contract interaction, and forking tests.
 
 ### 📂 Example Work
+- Found Contract Hijack vulnerability in lending protocol
 - Found Access control vulnerability in lending protocol
 - Found Missing Return Value vulnerabilities in Multiple Lending Protocols
+- Found over borrowing vulnerability in lending protocol.
 
 ### 📫 Contact
 - WhatsApp: +2348109440946
