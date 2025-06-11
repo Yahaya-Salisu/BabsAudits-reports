@@ -5,7 +5,7 @@ Target:
 https://github.com/sherlock-audit/2025-05-lend-audit-contest/blob/main/Lend-V2%2Fsrc%2FLayerZero%2FCoreRouter.sol#L145
  
 
-     ### ***Summary:***
+         Summary:
 
 The borrow function is used to borrow debt from the protocol, and the function does not check borrowed and collateral properly, the require checks preBorrowAmount ( currentBorrowBalance ) instead of postBorrowAmount ( currentBorrowBalance + _amount ) this will allow borrowers to borrow debt more than their collateral
 
@@ -52,7 +52,7 @@ F. The borrower has received $400, while his currentBorrowBalance is $500. that 
 
 ---
 
-        ### ***Impact:***
+           Impact:
 
 - Loss of protocol and Liquidators funds because the user's collateral can not pay the debt
 
@@ -62,7 +62,7 @@ F. The borrower has received $400, while his currentBorrowBalance is $500. that 
 
 ---
 
-    ### ***Recommendation:***
+       Recommendation:
 
 
 ```solidity
