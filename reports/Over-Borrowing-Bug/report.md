@@ -1,6 +1,7 @@
-A user can borrow amount beyond collateral limit in Lend-Protocol
+**A user can borrow amount beyond collateral limit in Lend-Protocol
 
 Severity: High
+
 Target:
 https://github.com/sherlock-audit/2025-05-lend-audit-contest/blob/main/Lend-V2%2Fsrc%2FLayerZero%2FCoreRouter.sol#L145
  
