@@ -1,12 +1,12 @@
 **A user can borrow amount beyond collateral limit in Lend-Protocol**
 
-Severity: High
+_Bug Severity: High_
 
-Target:
+_Target:_
 https://github.com/sherlock-audit/2025-05-lend-audit-contest/blob/main/Lend-V2%2Fsrc%2FLayerZero%2FCoreRouter.sol#L145
  
 
-         Summary
+**Summary:**
 
 The borrow function is used to borrow debt from the protocol, and the function does not check borrowed and collateral properly, the require checks preBorrowAmount ( currentBorrowBalance ) instead of postBorrowAmount ( currentBorrowBalance + _amount ) this will allow borrowers to borrow debt more than their collateral
 
@@ -37,7 +37,7 @@ The borrow function is used to borrow debt from the protocol, and the function d
 
 
 
- ### ***Vulnerability Details:***
+**Vulnerability Details:**
 
 A. A User deposited $1000 for example, and the collateral factor (LTV) is 0.8e18 (80%), that means the User has a chance to borrow $800
 
@@ -53,7 +53,7 @@ F. The borrower has received $400, while his currentBorrowBalance is $500. that 
 
 
 
-           Impact:
+**Impact:**
 
 - Loss of protocol and Liquidators funds because the user's collateral can not pay the debt
 
@@ -63,7 +63,7 @@ F. The borrower has received $400, while his currentBorrowBalance is $500. that 
 
 
 
-       Recommendation:
+**Recommendation:**
 
 Change borrowAmount in require
 
