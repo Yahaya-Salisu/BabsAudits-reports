@@ -9,10 +9,11 @@ Summary:
 The borrow function is used to borrow debt from the protocol, and the function does not check borrowed and collateral properly, the require checks preBorrowAmount ( currentBorrowBalance ) instead of postBorrowAmount ( currentBorrowBalance + _amount ) tis will allow borrowers to borrow more than their collateral
 
 
-```
+```solidity
+// CoreRouter.sol
     function borrow(uint256 _amount, address _token) external {
     
-     // ...
+     // ... existing code
 
         (uint256 borrowed, uint256 collateral) =
             lendStorage.getHypotheticalAccountLiquidityCollateral(msg.sender, LToken(payable(_lToken)), 0, _amount);
@@ -28,5 +29,4 @@ The borrow function is used to borrow debt from the protocol, and the function d
 
         // Emit BorrowSuccess event
         emit BorrowSuccess(msg.sender, _lToken, lendStorage.getBorrowBalance(msg.sender, _lToken).amount);
-    }
-```
+    }```
