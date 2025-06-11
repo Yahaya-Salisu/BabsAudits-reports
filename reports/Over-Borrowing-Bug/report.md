@@ -13,7 +13,7 @@ The borrow function is used to borrow debt from the protocol, and the function d
 // CoreRouter.sol
     function borrow(uint256 _amount, address _token) external {
     
-     // ... existing code
+     // ... existed code
 
         (uint256 borrowed, uint256 collateral) =
             lendStorage.getHypotheticalAccountLiquidityCollateral(msg.sender, LToken(payable(_lToken)), 0, _amount);
@@ -22,10 +22,11 @@ The borrow function is used to borrow debt from the protocol, and the function d
             ? ((borrowed * LTokenInterface(_lToken).borrowIndex()) / currentBorrow.borrowIndex)
             : 0;
 
-@audit ---> This require will allow over borrowing because it checks only preBorrowAmount
+@audit ---> This require will allow over borrowing because it checks only preBorrowAmount, to prevent this bug protocol has to change borrowAmount to borrowed
+
          require(collateral >= borrowAmount, "Insufficient collateral");
 
-       // ...
+       // ... existed code
 
         // Emit BorrowSuccess event
         emit BorrowSuccess(msg.sender, _lToken, lendStorage.getBorrowBalance(msg.sender, _lToken).amount);
