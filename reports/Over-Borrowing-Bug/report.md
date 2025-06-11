@@ -79,7 +79,9 @@ require(collateral >= borrowed, "Insufficient collateral");
 // borrowed = currentBorrowBalance + _amount e.g $500 + $400 = $900.
 ```
 
-Proof of concept (PoC):
+**Proof of concept (PoC):**
+
+The below PoC shows how a user deposited 1000 USDC and borrow 500 USDC first, then re-borrow 400 USDC even though the collateral factor (LTV) is 80% which is 800 USDC.
 
 ```solidity
 // SPDX-License-Identifier: MIT
