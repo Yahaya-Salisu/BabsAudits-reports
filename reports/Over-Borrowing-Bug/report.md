@@ -33,6 +33,7 @@ The borrow function is used to borrow debt from the protocol, and the function d
         emit BorrowSuccess(msg.sender, _lToken, lendStorage.getBorrowBalance(msg.sender, _lToken).amount);
     }```
 
+---
 
 Vulnerability Details:
 
@@ -48,6 +49,7 @@ E. The borrow function has indeed identified that the collateral > $500
 
 F. The borrower has received $400, while his currentBorrowBalance is $500. that means the borrower has borrowed $900 instead of $800,that extra $100 will fall the user's debt underCollateralized.
 
+---
 
 Impact:
 
@@ -57,10 +59,14 @@ Impact:
 
 - While the Liquidators will not receive their incentives.
 
+---
+
 Recommendation:
 
-Change borrowAmount in require
+
 ```solidity
+// Change borrowAmount in require
+
 // from this
 require(collateral >= borrowAmount, "Insufficient collateral");
 
