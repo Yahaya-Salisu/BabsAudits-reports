@@ -3,7 +3,7 @@
                
 _Bug Severity: High_             
 
-_Target:_ https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/dev/main/contracts/facets/SmartLoanViewFacet.sol#L41
+_Target:_ https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/main/contracts%2Ffacets%2FSmartLoanViewFacet.sol#L41
 
 
 **Summary:**
