@@ -3,7 +3,7 @@
                
 _Bug Severity: High_             
 
-_Target:_ https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/dev/main/contracts/facets/SmartLoanViewFacet.sol#L42
+_Target:_ https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/dev/main/contracts/facets/SmartLoanViewFacet.sol#L41
 
 
 **Summary:**
@@ -11,6 +11,20 @@ _Target:_ https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/dev/main/
 DeltaPrime maintains all user's prime accounts in the pattern of “Proxy+implementation” where each prime account is a proxy pointing to the implementation contract. The implementation contract, i.e., “SmartLoanDiamondBeacon”, adheres to the EIP-2535 standard (Diamond) and can only be managed by the protocol owner. This means that if a malicious user can manage to become the owner of the "SmartLoanDiamondBeacon" contract, he can gain control over all users' Prime accounts.
 
 I did indeed discover such a vulnerability. this vulnerability involves a facet contract called “SmartLoanViewFacet”. This contract includes an “initialize()” function, originally designed to initialize the owner for a new prime account. However, we noticed that a hacker can directly call the “SmartLoanViewFacet::initialize()” function to hijack the owner of the “SmartLoanDiamondBeacon” contract.
+
+```solidity
+// SmartLoanViewFacet.sol
+    function initialize(address owner) external {
+        require(owner != address(0), "Initialize: Cannot set the owner to a zero address");
+        require(address(this) != DeploymentConstants.getDiamondAddress(), "DiamondInit: Cannot initialize DiamondBeacon");
+
+        DiamondStorageLib.SmartLoanStorage storage sls = DiamondStorageLib.smartLoanStorage();
+        require(!sls._initialized, "DiamondInit: contract is already initialized");
+        DiamondStorageLib.setContractOwner(owner);
+        sls._initialized = true;
+    }
+// @audit-bug --> This function call is missed
+```
 
 
 **Impact:**
