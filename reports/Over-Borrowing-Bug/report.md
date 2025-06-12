@@ -72,7 +72,7 @@ Change borrowAmount in require
 require(collateral >= borrowAmount, "Insufficient collateral");
 
 // to this
-+require(collateral >= borrowed, "Insufficient collateral");
+require(collateral >= borrowed, "Insufficient collateral");
 
 // borrowAmount = currentBorrowBalance e.g $500
 // borrowed = currentBorrowBalance + _amount e.g $500 + $400 = $900.
