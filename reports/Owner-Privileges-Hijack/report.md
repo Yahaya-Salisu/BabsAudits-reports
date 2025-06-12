@@ -14,7 +14,7 @@ I did indeed discover such a vulnerability. this vulnerability involves a facet 
 
 ```solidity
       // SmartLoanViewFacet.sol
-@audit-bug--> // ⚠️ This function call is missed
+@audit-bug--> // ⚠️ Owner did not call initialize, hence, anyone can call it and steal the contract
     function initialize(address owner) external {
         require(owner != address(0), "Initialize: Cannot set the owner to a zero address");
         require(address(this) != DeploymentConstants.getDiamondAddress(), "DiamondInit: Cannot initialize DiamondBeacon");
