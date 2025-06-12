@@ -13,8 +13,8 @@ DeltaPrime maintains all user's prime accounts in the pattern of “Proxy+implem
 I did indeed discover such a vulnerability. this vulnerability involves a facet contract called “SmartLoanViewFacet”. This contract includes an “initialize()” function, originally designed to initialize the owner for a new prime account. However, we noticed that a hacker can directly call the “SmartLoanViewFacet::initialize()” function to hijack the owner of the “SmartLoanDiamondBeacon” contract.
 
 ```solidity
-// SmartLoanViewFacet.sol
-@audit-bug --> This function call is missed
+      // SmartLoanViewFacet.sol
+// @audit-bug --> This function call is missed
     function initialize(address owner) external {
         require(owner != address(0), "Initialize: Cannot set the owner to a zero address");
         require(address(this) != DeploymentConstants.getDiamondAddress(), "DiamondInit: Cannot initialize DiamondBeacon");
