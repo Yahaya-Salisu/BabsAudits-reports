@@ -1,17 +1,17 @@
-*Supply Function Uses Stale Exchange Rate, Leading to Inaccurate Minting*
+**Supply Function Uses Stale Exchange Rate, Leading to Inaccurate Minting**
 
-Bug Severity: High
+_Bug Severity:_ High
 
-Target:
-
-
-*Summary:*
+_Target:_
 
 
-*Venerability Details:*
+**Summary:**
 
 
-*Recommendation:*
+**Venerability Details:**
 
 
-*Proof of concept (PoC)*
+**Recommendation:**
+
+
+**Proof of concept (PoC)**
