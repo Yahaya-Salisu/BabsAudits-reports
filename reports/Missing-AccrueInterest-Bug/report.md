@@ -1,6 +1,6 @@
-**Supply Function Uses Stale Exchange Rate, Leading to Inaccurate Minting**
+**Redeem function does not call accrueInterest, leading to loss of user interests**
 
-_Bug Severity:_ High
+_Bug Severity:_ Medium 
 
 _Target:_
 
