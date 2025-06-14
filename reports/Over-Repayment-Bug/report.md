@@ -4,6 +4,7 @@ _Bug Severity:_ High
 
 _Target:_
 
+
 **Summary:**
 
 The repayBorrow function attempts to handle both full and partial repayments. If a user supplies _amount == type(uint256).max, the contract assumes full repayment and uses borrowedAmount as the repay amount. However, when _amount is a specific value, there is no upper bound check to ensure it is not greater than borrowedAmount, allowing over-repayment.
@@ -35,17 +36,14 @@ When _amount is explicitly specified (i.e., not type(uint256).max), the contract
 - May be exploited in MEV/front-running scenarios where users are tricked into over-repaying.
 
 
-Recommendation
+**Recommendation**
+
 The require should also ensure that the _amount =< borrowedAmount.
 
 ```solidity
-uint256 repayAmountFinal = _amount == type(uint256).max 
-    ? borrowedAmount 
-    : _amount > borrowedAmount 
-        ? borrowedAmount 
-        : _amount;
+uint256 repayAmountFinal = _amount == type(uint256).max ? borrowedAmount : _amount > borrowedAmount ? borrowedAmount : _amount;
 
-Or add a require:
+// Or add a require:
 
 require(_amount <= borrowedAmount, "Cannot repay more than owed");
 ```
