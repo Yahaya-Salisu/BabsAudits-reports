@@ -38,7 +38,7 @@ When _amount is explicitly specified (i.e., not type(uint256).max), the contract
 
 **Recommendation**
 
-The require should also ensure that the _amount =< borrowedAmount.
+The require should also ensure that the _amount <= borrowedAmount.
 
 ```solidity
 uint256 repayAmountFinal = _amount == type(uint256).max ? borrowedAmount : _amount > borrowedAmount ? borrowedAmount : _amount;
@@ -52,3 +52,9 @@ This will check if the _amount > borrowAmount, and if so, the protocol will tran
 
 
 **Proof of concept (PoC)**
+
+The below PoC shows how the borrower borrowed 1_000e18 and later repaid 10_000e18, meaning that user directly lost 9_000e18
+
+```solidity
+
+```
