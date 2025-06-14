@@ -32,10 +32,10 @@ function supply(uint256 _amount, address _token) external {
 
         ... existing code...
 
-@>>> This mint() accrues interest internally
+  
+// Mint lTokens
 
-      // Mint lTokens 
- require(LErc20Interface(_lToken).mint(_amount) == 0, "Mint failed");
+@audit-safe--> require(LErc20Interface(_lToken).mint(_amount) == 0, "Mint failed"); // ✅ This mint() accrues interest internally
 
 ```
 
