@@ -6,8 +6,11 @@ _Target:_
 
 
 **Summary:**
-- The supply function does not call accrueInterest first! and it relies on exchangeRateStored() for price data, while exchangeRateStored() does not call accrueInterest or exchangeRateCurrent().
-- Meaning that the supply function doesn't get latest price because exchangeRateStored() always give a stale price which is OutDated.
+- The supply() function fails to call accrueInterest() before relying on exchangeRateStored() for price data.
+
+However, exchangeRateStored() does not internally call accrueInterest() or exchangeRateCurrent(), and therefore returns a stale (outdated) exchange rate.
+
+As a result, the calculation for minted tokens is based on outdated pricing, which can lead to under- or over-minting of lTokens.
 
 ```solidity
 // CoreRouter.sol
@@ -35,7 +38,7 @@ function supply(uint256 _amount, address _token) external {
 
 ```
 
-- Lastly the supply function uses exchangeRateStored() to calculate actual 
+- After calling mint(), the actual number of lTokens to credit is calculated using the old stale exchange rate captured before interest was accrued:
 
 ```solidity
 function supply(uint256 _amount, address _token) external {
@@ -55,9 +58,19 @@ function supply(uint256 _amount, address _token) external {
 ```
 
 **Venerability Details:**
+This leads to miscalculation in the number of lTokens minted for the user, creating an inconsistent accounting between real-time token value and actual supply.
+
+- In edge cases, this could allow:
+
+- Over-minting: protocol suffers loss
+
+- Under-minting: user suffers loss
 
 
 **Recommendation:**
+Replace exchangeRateStored() with a call to exchangeRateCurrent() or manually call accrueInterest() before reading the exchange rate.
+
+This ensures that minting calculations use the latest, interest-accrued exchange rate.
 
 
 **Proof of concept (PoC)**
