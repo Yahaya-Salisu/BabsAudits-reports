@@ -57,9 +57,11 @@ function supply(uint256 _amount, address _token) external {
 @audit-bug--> uint256 mintTokens = (_amount * 1e18) / exchangeRateBefore; // ⚠️ BUG: Uses outdated exchangeRate, leading to inaccurate minting
 ```
 
+
 **Venerability Details:**
 
 This leads to miscalculation in the number of lTokens minted for the user, creating an inconsistent accounting between real-time token value and actual supply.
+
 
 
 **Impact:**
@@ -71,6 +73,7 @@ This leads to miscalculation in the number of lTokens minted for the user, creat
 - Under-minting: user suffers loss
 
 
+
 **Recommendation:**
 
 Replace exchangeRateStored() with a call to exchangeRateCurrent() or manually call accrueInterest() before reading the exchange rate.
@@ -78,11 +81,12 @@ Replace exchangeRateStored() with a call to exchangeRateCurrent() or manually ca
 This ensures that minting calculations use the latest, interest-accrued exchange rate.
 
 
+
 **Proof of concept (PoC)**
 
 The below PoC shows how supply uses stale price in different time of supplying...
 
-- In supply-1 we get the amount of **1e11** lTokens, while after 3 days ( using warp ) the price is still the same, even though there is a difference of **1.717e9** but the price remains the same as 1e11 supply-2. 
+- In supply-1 we get the amount of **1e11** lTokens, while after 3 days ( using warp ) the price is still the same, even though there is a difference of **1.717e9** but the price remains the same as 1e11 in supply-2. 
 - This clearly shows that the supply function and exchangeRateStored() do not call accrueInterest or exchangeRateCurrent() during supplying
 - Despite 3 days passing and interest being accumulated,
 the `supply()` still relies on the old stored rate instead of the updated one,
@@ -90,6 +94,7 @@ because `exchangeRateStored()` was used before mint.
 
 
 ```solidity
+   ... existing code ...
 function test_supply1() public {
         vm.startPrank(User);
 
