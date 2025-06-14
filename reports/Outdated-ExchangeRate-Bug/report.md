@@ -77,3 +77,46 @@ This ensures that minting calculations use the latest, interest-accrued exchange
 
 
 **Proof of concept (PoC)**
+```solidity
+function test_supply1() public {
+        vm.startPrank(User);
+
+       (bool success, bytes memory data) = address(CoreRouter).call(
+    abi.encodeWithSignature("supply(uint256,address)", 10_000e6, USDC)
+        );
+     if (!success) console2.log("Revert reason:", string(data));
+
+     console2.log("User supplied-1:", ICoreRouter(USDC).balanceOf(User));
+
+     vm.stopPrank();
+    }
+     
+
+     function test_supply2() public {
+
+        vm.startPrank(User);
+
+        vm.warp(block.timestamp + 3 days);
+
+    console2.log("Exchange Rate Before Supply:", ILToken(LToken).exchangeRateCurrent());
+
+     ILToken(LToken).exchangeRateCurrent();
+
+    console2.log("Exchange Rate After accrueInterest:", ILToken(LToken).exchangeRateCurrent());
+
+       (bool success, bytes memory data) = address(CoreRouter).call(
+    abi.encodeWithSignature("supply(uint256,address)", 10_000e6, USDC)
+        );
+     if (!success) console2.log("Revert reason:", string(data));
+
+     console2.log("User supplied-2:", ICoreRouter(USDC).balanceOf(User));
+
+     vm.stopPrank();
+
+    }
+}
+```
+
+
+**PoC OutPut:**
+![PoC](https://github.com/user-attachments/assets/be3e499b-305e-4aab-9303-1a1c5aca5dff)
