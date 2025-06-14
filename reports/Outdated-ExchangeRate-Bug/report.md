@@ -51,7 +51,7 @@ function supply(uint256 _amount, address _token) external {
 @audit-bug--> uint256 exchangeRateBefore = LTokenInterface(_lToken).exchangeRateStored(); // ⚠️ BUG: exchangeRateStored() doesn't call accrueInterest or exchangeRateCurrent(), hence, it gives an out dated price
 
         // Mint lTokens
-        @>>> require(LErc20Interface(_lToken).mint(_amount) == 0, "Mint failed"); // ✅ This mint accrues interest
+@audit-safe--> require(LErc20Interface(_lToken).mint(_amount) == 0, "Mint failed"); // ✅ This mint accrues interest internally
 
         // Calculate actual minted tokens using exchangeRate from before mint
 @audit-bug--> uint256 mintTokens = (_amount * 1e18) / exchangeRateBefore; // ⚠️ BUG: Amount of mintTokens can be less than expected due to out dated price from exchangeRateStored()
