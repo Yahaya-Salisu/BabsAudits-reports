@@ -55,12 +55,14 @@ function supply(uint256 _amount, address _token) external {
 
         // Calculate actual minted tokens using exchangeRate from before mint
 @audit-bug--> uint256 mintTokens = (_amount * 1e18) / exchangeRateBefore; // ⚠️ BUG: Uses outdated exchangeRate, leading to inaccurate minting
-
 ```
 
 **Venerability Details:**
 
 This leads to miscalculation in the number of lTokens minted for the user, creating an inconsistent accounting between real-time token value and actual supply.
+
+
+**Impact:**
 
 - In edge cases, this could allow:
 
@@ -77,6 +79,16 @@ This ensures that minting calculations use the latest, interest-accrued exchange
 
 
 **Proof of concept (PoC)**
+
+The below PoC shows how supply uses stale price in different time of supplying...
+
+- In supply-1 we get the amount of **1e11** lTokens, while after 3 days ( using warp ) the price is still the same, even though there is a difference of **1.717e9** but the price remains the same as 1e11 supply-2. 
+- This clearly shows that the supply function and exchangeRateStored() do not call accrueInterest or exchangeRateCurrent() during supplying
+- Despite 3 days passing and interest being accumulated,
+the `supply()` still relies on the old stored rate instead of the updated one,
+because `exchangeRateStored()` was used before mint.
+
+
 ```solidity
 function test_supply1() public {
         vm.startPrank(User);
@@ -93,16 +105,10 @@ function test_supply1() public {
      
 
      function test_supply2() public {
-
         vm.startPrank(User);
 
+// warp by 3 days to simulate interest accrual over time
         vm.warp(block.timestamp + 3 days);
-
-    console2.log("Exchange Rate Before Supply:", ILToken(LToken).exchangeRateCurrent());
-
-     ILToken(LToken).exchangeRateCurrent();
-
-    console2.log("Exchange Rate After accrueInterest:", ILToken(LToken).exchangeRateCurrent());
 
        (bool success, bytes memory data) = address(CoreRouter).call(
     abi.encodeWithSignature("supply(uint256,address)", 10_000e6, USDC)
