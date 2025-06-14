@@ -1,24 +1,56 @@
-**User can repayBorrow more than borrowedAmount in repayBorrow function**
+**Over-repayment possible in repayBorrow due to missing upper bound check on _amount**
 
-_Bug Severity:_ High 
+_Bug Severity:_ High
 
-_Target_
-
+_Target:_
 
 **Summary:**
 
+The repayBorrow function attempts to handle both full and partial repayments. If a user supplies _amount == type(uint256).max, the contract assumes full repayment and uses borrowedAmount as the repay amount. However, when _amount is a specific value, there is no upper bound check to ensure it is not greater than borrowedAmount, allowing over-repayment.
+
+```solidity
+function repayBorrowInternal(address borrower, address liquidator, uint256 _amount, address _lToken, bool _isSameChain) internal {  
+       
+      ... existing code ...   
+     
+@audit-bug--> uint256 repayAmountFinal = _amount == type(uint256).max ? borrowedAmount : _amount; // ⚠️ BUG: Potential over-repayment if `_amount` is set to a value greater than `borrowedAmount` the function will still proceed.
+```
+
+When _amount is explicitly specified (i.e., not type(uint256).max), the contract will proceed to transfer _amount without checking if it exceeds the actual debt (borrowedAmount). This can lead to scenarios where users accidentally or unknowingly over-repay beyond what they owe.
 
 
+**Vulnerability Details:**
+
+- A user borrows 1000e18.
+- Later, the user wants to repay by calling `repayBorrowInternal()`.
+- If the allowance is unlimited (`type(uint256).max`), the contract correctly limits repayment to `borrowedAmount`.
+- But if the user provides a specific `_amount`, **even if greater than the debt**, the contract proceeds to transfer `_amount` instead of capping at `borrowedAmount`.
 
 
+**Impact:**
+
+- Users may over-repay and lose funds permanently.
+- The protocol will unjustly collect tokens it is not entitled to.
+- Could cause accounting inconsistencies in protocol’s internal state.
+- May be exploited in MEV/front-running scenarios where users are tricked into over-repaying.
 
 
-**Vulnerability Details**
+Recommendation
+The require should also ensure that the _amount =< borrowedAmount.
 
+```solidity
+uint256 repayAmountFinal = _amount == type(uint256).max 
+    ? borrowedAmount 
+    : _amount > borrowedAmount 
+        ? borrowedAmount 
+        : _amount;
 
+Or add a require:
 
-**Recommendation**
+require(_amount <= borrowedAmount, "Cannot repay more than owed");
+```
 
+This will check if the _amount > borrowAmount, and if so, the protocol will transfer borrowAmount only, or it will revert ( if you use require ).
 
 
 **Proof of concept (PoC)**
