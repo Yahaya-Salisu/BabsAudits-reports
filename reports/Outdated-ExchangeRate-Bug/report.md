@@ -6,6 +6,7 @@ _Target:_
 
 
 **Summary:**
+
 - The supply() function fails to call accrueInterest() before relying on exchangeRateStored() for price data.
 
 However, exchangeRateStored() does not internally call accrueInterest() or exchangeRateCurrent(), and therefore returns a stale (outdated) exchange rate.
@@ -58,6 +59,7 @@ function supply(uint256 _amount, address _token) external {
 ```
 
 **Venerability Details:**
+
 This leads to miscalculation in the number of lTokens minted for the user, creating an inconsistent accounting between real-time token value and actual supply.
 
 - In edge cases, this could allow:
@@ -68,6 +70,7 @@ This leads to miscalculation in the number of lTokens minted for the user, creat
 
 
 **Recommendation:**
+
 Replace exchangeRateStored() with a call to exchangeRateCurrent() or manually call accrueInterest() before reading the exchange rate.
 
 This ensures that minting calculations use the latest, interest-accrued exchange rate.
