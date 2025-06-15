@@ -102,6 +102,6 @@ function testOverRepayment() public {
 }
 ```
 
-**PoC OutPut:**
+**PoC Output:**
 
 ![PoC](https://github.com/user-attachments/assets/f7221988-244e-42e7-af3c-d5f0ad7c2285)
