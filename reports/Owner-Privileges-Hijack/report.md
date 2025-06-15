@@ -1,7 +1,7 @@
 **Contract hijack via unprotected initialize in SmartLoanViewFacet.sol**
 
                
-_Bug Severity: High_             
+_Bug Severity:_ Critical            
 
 _Target:_ https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/main/contracts%2Ffacets%2FSmartLoanViewFacet.sol#L41
 
