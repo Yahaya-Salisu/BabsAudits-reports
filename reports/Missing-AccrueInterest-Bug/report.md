@@ -104,8 +104,39 @@ uint256 exchangeRateBefore = LTokenInterface(_lToken). exchangeRateCurrent();
 
 **Proof of concept (PoC)**
 
-The below PoC shows how a user supplied 1_000e6 USDC, after 30 days redeems the token and received exact amount he supplied ( 1_000e6 ) without interest.
+The below PoC shows how a user supplied 10_000e6 USDC, after 30 days redeems all of the token and received exact amount he supplied (principal amount) without interest.
 
 ```solidity
+ function setUp() public {
+        vm.createSelectFork(vm.envString("ETH_RPC_URL"), 19999999);
 
+        deal(USDC, User, 10_000e6);
+
+        // 1. Approve and supply collateral
+
+        IERC20(USDC).approve(CoreRouter, type(uint256).max);
+
+        (bool success, bytes memory data) = address(CoreRouter).call(
+            abi.encodeWithSignature("supply(uint256,address)", 10_000e6, USDC)
+        );
+        require(success, string(data));
+
+        // 3. Wait to accrue interest
+        vm.warp(block.timestamp + 30 days);
+    }
+
+    function test_missingAccrueInterest() public {
+        vm.startPrank(User);
+        
+        // 2. redeem the amount
+
+        (bool success, bytes memory data) = address(CoreRouter).call(
+            abi.encodeWithSignature("redeem(uint256 redeemTokens)", IERC20(USDC).balanceOf(User))
+        );
+        require(success, string(data));
+
+    }
 ```
+
+**PoC Output:**
+![PoC](https://github.com/user-attachments/assets/8c02d364-3588-4764-8020-f72780ddcd81)
