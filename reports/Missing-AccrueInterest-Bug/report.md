@@ -1,12 +1,13 @@
 **Redeem function does not call accrueInterest, leading to loss of user interests**
 
-_Severity:_ Medium 
+_Bug Severity:_ Medium 
 
 _Target:_
 
 
 **Summary:**
-Rdeem function fails to call accrueInterest entirely, that could result in loss user interests because whenever the Suppliers tried to redeem their LToken to underlying asset, the redeem function will accumulate the interests, meaning that the user will receive exact amount they have supplied without interest.
+
+Rdeem function fails to call accrueInterest entirely, this could result in loss of users interests because whenever the users tried to redeem their LToken to underlying asset, the redeem function will not accumulate the interests, meaning that the users will receive exact amount they have supplied without interest.
 
 ```solidity
 function redeem(uint256 _amount, address payable _lToken) external returns (uint256) {
