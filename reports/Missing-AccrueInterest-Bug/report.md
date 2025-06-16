@@ -31,7 +31,7 @@ function redeem(uint256 _amount, address payable _lToken) external returns (uint
 @audit-bug--> uint256 exchangeRateBefore = LTokenInterface(_lToken).exchangeRateStored(); // ⚠️ BUG: potential price miscalculation because exchangeRateStored() does not accrueInterest
 
         // Calculate expected underlying tokens
-        uint256 expectedUnderlying = (_amount * exchangeRateBefore) / 1e18;
+@audit-bug--> uint256 expectedUnderlying = (_amount * exchangeRateBefore) / 1e18; // ⚠️ BUG: `expectedUnderlying` also relies on outdated exchange rate, leading to over/under amount.
 
         // Perform redeem
         require(LErc20Interface(_lToken).redeem(_amount) == 0, "Redeem failed");
