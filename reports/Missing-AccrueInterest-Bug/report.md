@@ -74,6 +74,7 @@ function redeem(uint256 _amount, address payable _lToken) external returns (uint
 - User's amount could be more or less than expected because the function uses exchangeRateStored() to calculate expected underlying.
 
 
+
 **Recommendation:**
 
 - For missing accrueInterest
@@ -102,6 +103,7 @@ uint256 exchangeRateBefore = LTokenInterface(_lToken). exchangeRateCurrent();
 
 
 **Proof of concept (PoC)**
+
 The below PoC shows how a user supplied 1_000e6 USDC, after 30 days redeems the token and received exact amount he supplied ( 1_000e6 ) without interest.
 
 ```solidity
