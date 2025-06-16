@@ -8,6 +8,8 @@ _Target:_
 **Summary:**
 
 
+**Impact:**
+
 
 **Vulnerability Details:**
 
@@ -17,3 +19,10 @@ _Target:_
 
 
 **Proof of concept (PoC)**
+
+```solidity
+
+```
+
+**PoC Output:**
+![PoC](https://github.com/user-attachments/assets/171deb23-f349-4cd8-af7f-999e0e959fb2)
