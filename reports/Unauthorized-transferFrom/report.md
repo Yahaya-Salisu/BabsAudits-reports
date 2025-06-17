@@ -66,7 +66,7 @@ function repayBorrowInternal(address borrower, address liquidator, uint256 _amou
 
 **Proof of concept (PoC)**
 
-The below PoC shows how a User borrowed 1_000e18, and when he wanted to repay he calls repayBorrow, but the repayBorrow function didn't deduct the amount from borrower but from liquiditor, after transaction was successful, the borrower balance is still the same.
+The below PoC shows how a User borrowed 1_000e18, and later wanted to repay, then he calls repayBorrow, but the repayBorrow function didn't charge the amount from borrower but from a liquiditor, and after debt is cleared, the borrower's balance is still the same.
 
 ```solidity
 vm.startPrank(borrower);
