@@ -7,18 +7,62 @@ _Target:_
 
 **Summary:**
 
+The repayBorrow in a LEND protocol has incorrect transferFrom parameter, the function uses an improper transferFrom that unintentionally deducts funds from the liquidator even when the borrower calls repayBorrow.
 
-**Impact:**
+
 
 
 **Vulnerability Details:**
+
+If a user borrows from the protocol, and later calls repayBorrow, the function does not deduct the funds from the borrower, but it charges any liquidator that approve allowance to the protocol, and updates the borrower's balance while borrower does not pay anything from his debt
+
+```solidity
+// coreRouter.sol
+
+function repayBorrowInternal(address borrower, address liquidator, uint256 _amount, address _lToken, bool _isSameChain) internal {
+     
+     ... existing code ....
+
+    // Tokens transferFrom borrower to the contract
+@audit-bug--> IERC20(_token).safeTransferFrom(liquidator, address(this), repayAmountFinal); // ⚠️ BUG: the transferFrom should not always deducts the money from liquidator
+```
+
+- For example:
+
+1. User A borrows funds from protocol.
+
+2. User B (a liquidator) unknowingly approves allowance to CoreRouter.
+
+3. User A repays the debt using `repayBorrow`, but CoreRouter deducts funds from User B instead.
+
+4. User A's debt is cleared; User B loses funds.
+
+
+**Impact:**
+
+- Liquidators will always be charged for debt they never borrowed.
+- Actual borrowers will get free debt, because when they borrowed the debts and wanted to repay, the protocol will not charges them, instead, the protocol will deduct the Amount from liquiditors and also update the borrower's balance.
 
 
 
 **Recommendation**
 
+```solidity
+// coreRouter.sol
+
+function repayBorrowInternal(address borrower, address liquidator, uint256 _amount, address _lToken, bool _isSameChain) internal {
+     
+     ... existing code ....
+
+    // Tokens transferFrom borrower to the contract
+@audit-fix--> IERC20(_token).safeTransferFrom(msg.sender, address(this), repayAmountFinal);
+```
+
+
 
 **Proof of concept (PoC)**
+
+The below PoC shows how a User borrowed 1_000e18, and when he wanted to repay he calls repayBorrow, but the repayBorrow function didn't deduct the amount from borrower but from liquiditor, after transaction was successful, the borrower balance is still the same.
 
 ```solidity
 vm.startPrank(borrower);
