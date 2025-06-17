@@ -38,10 +38,12 @@ function repayBorrowInternal(address borrower, address liquidator, uint256 _amou
 4. User A's debt is cleared; User B loses funds.
 
 
+
 **Impact:**
 
 - Liquidators will always be charged for debt they never borrowed.
 - Actual borrowers will get free debt, because when they borrowed the debts and wanted to repay, the protocol will not charges them, instead, the protocol will deduct the Amount from liquiditors and also update the borrower's balance.
+
 
 
 
@@ -57,6 +59,8 @@ function repayBorrowInternal(address borrower, address liquidator, uint256 _amou
     // Tokens transferFrom borrower to the contract
 @audit-fix--> IERC20(_token).safeTransferFrom(msg.sender, address(this), repayAmountFinal);
 ```
+
+
 
 
 
