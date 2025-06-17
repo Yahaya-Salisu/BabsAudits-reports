@@ -2,7 +2,7 @@
 
 _Bug Severity:_ High 
 
-_Target:_
+_Target:_ https://github.com/sherlock-audit/2025-05-lend-audit-contest/blob/main/Lend-V2%2Fsrc%2FLayerZero%2FCoreRouter.sol#L459
 
 
 **Summary:**
