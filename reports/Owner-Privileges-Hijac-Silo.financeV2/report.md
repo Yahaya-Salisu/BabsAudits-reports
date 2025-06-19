@@ -1,6 +1,6 @@
+**Contract hijack via unprotected initialize in Actions.sol**
 
-
-_Bug Severity:_ Critical 
+_Bug Severity:_ High
 
 _Target:_
 
@@ -19,3 +19,5 @@ _Target:_
 
 
 **PoC Output:**
+
+![PoC](https://github.com/user-attachments/assets/c6ea656d-9920-4c57-81a8-05b07e3ccdeb)
