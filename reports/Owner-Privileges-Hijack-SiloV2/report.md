@@ -1,1 +1,1 @@
-1
+This report will be available Once the bug bounty finished their work and release it to the public
