@@ -102,3 +102,6 @@ contract SiloActionsInitialize is Test {
 
 
 **PoC Output:**
+
+
+![PoC](https://github.com/user-attachments/assets/4c00c21a-3354-460d-9e61-5e8fd69fcc0c)
