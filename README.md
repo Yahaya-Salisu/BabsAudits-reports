@@ -3,7 +3,7 @@
 ## 🛡️ A Smart Contract Auditor
 
 ### 🧠 My focus Areas
-- DeFi protocols (Lending, Borrowing, Staking)
+- DeFi protocols (Dex,Staking, Lending and Borrowing)
 - ERC-20, ERC-721, and ERC-1155 tokens
 - Smart contract security vulnerabilities
 - Manual auditing and automated tools (Slither, Foundry)
