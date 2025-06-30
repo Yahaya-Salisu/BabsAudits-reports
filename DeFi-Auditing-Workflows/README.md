@@ -12,8 +12,7 @@ Over time, I’ve built a structured auditing strategy for each major DeFi verti
 
 Each workflow reflects how I:
 - Break down the architecture of a protocol,
-- Categorize functions (user, risk, math, admin),
-- Organize time across audit days (e.g., Day 1 to Day 10),
+- Categorize functions (LPs, user, risk, math, admin & system),
 - Maintain a repeatable auditing process.
 
 ## What's here?
