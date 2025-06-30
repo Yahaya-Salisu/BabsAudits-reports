@@ -3,12 +3,12 @@
 This document outlines my personal step-by-step approach when auditing complex DeFi protocols.
 
 #### Coverage
- Architecture review.
- LPs & Supplier functions.
- Traders & user Functions.
- Math model evaluations.
- Admin & system functions.
- Proof of concept testing.
+A. Architecture review
+B. LPs & Supplier functions
+C. Traders & user Functions
+D. Math model evaluations.
+E. Admin & system functions.
+F. Proof of concept testing.
 
 
 #### A. Protocol architecture review
