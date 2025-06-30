@@ -3,12 +3,12 @@
 This document outlines my personal step-by-step approach when auditing complex DeFi protocols.
 
 #### Coverage
- Architecture review
- LPs & Supplier functions
- Traders & user Functions
- Math model evaluations
- Admin & system functions
- Proof of concept testing
+ Architecture review.
+ LPs & Supplier functions.
+ Traders & user Functions.
+ Math model evaluations.
+ Admin & system functions.
+ Proof of concept testing.
 
 
 #### A. Protocol architecture review
@@ -89,9 +89,9 @@ admin withdrawals, setRewardRate()
 
 #### F. Proof Of Concepts
 ```solidity
- Use Foundry to reproduce and test vulnerabilities
- Write full unit + fuzz tests
- Submit report with reproduction steps
+ Use Foundry to reproduce and test vulnerabilities.
+ Write full unit + fuzz tests.
+ Submit report with reproduction steps.
 ```
 
 #### Conclusion
@@ -99,6 +99,6 @@ This is how I break down and deeply analyze complex DeFi protocols. I’m still 
 
 #### Tools I Use
 ```
- Slither for static analysis 
- Manual code review (I use the most)
- Foundry for testing
+ Slither for static analysis.
+ Manual code review (I use the most).
+ Foundry for testing.
