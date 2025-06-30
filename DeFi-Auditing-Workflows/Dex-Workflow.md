@@ -1,4 +1,4 @@
-### My Auditing Workflow From A-Z For complex Dex Protocols
+### My Auditing Workflow From A-F For complex Dex Protocols
 
 This document outlines my personal step-by-step approach when auditing complex Decentralized Exchanges (DEXs).
 
