@@ -71,7 +71,7 @@ This is the way I read AMM contracts from both user & protocol perspectives, ens
      6. setFee(), setAdmin(), withdrawFees()
 ```
 
-#### F. Proof Of Concepts ( 4 days )
+#### F. Proof Of Concepts
 ```
 - run foundry test of the bugs
 - submit the reports and PoCs
