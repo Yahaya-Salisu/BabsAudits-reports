@@ -17,7 +17,7 @@ This is the way I read AMM contracts from both user & protocol perspectives, ens
 ```
 1. Read documentation
 
-2. If it's forked, i check past audit reports
+2. If it's forked, i check past audit reports of original protocol
 - idea: Developer may repeat the same mistakes and if so, i can quickly catch the vulnerabilities.
 
 3. Identify AMM type:
