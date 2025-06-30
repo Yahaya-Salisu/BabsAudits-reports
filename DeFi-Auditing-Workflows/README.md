@@ -1,4 +1,4 @@
-#  DeFi Auditing Workflows
+## DeFi Auditing Workflows
 
 This folder contains the auditing workflows I personally follow when auditing complex DeFi protocols.
 
