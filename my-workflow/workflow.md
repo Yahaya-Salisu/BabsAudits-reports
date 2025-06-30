@@ -3,12 +3,12 @@
 This document outlines my personal step-by-step approach when auditing complex DeFi protocols.
 
 #### Coverage
-- Architecture review
-- LPs & Supplier functions
-- Traders & user Functions
-- Math model evaluations
-- Admin & system functions
-- Proof of concept testing
+ Architecture review
+ LPs & Supplier functions
+ Traders & user Functions
+ Math model evaluations
+ Admin & system functions
+ Proof of concept testing
 
 
 #### A. Protocol architecture review
@@ -16,25 +16,25 @@ This document outlines my personal step-by-step approach when auditing complex D
 1. Read documentation
 
 2. If it's forked, i check past audit reports of the original protocol
-- idea: Developers may repeat the same mistakes and if so, i can quickly catch the bugs.
+ idea: Developers may repeat the same mistakes and if so, i can quickly catch the bugs.
 
 3. Identify AMM type (DEX):
-- e.g x*y=k | Constant product | Stableswap | etc
+ e.g x*y=k | Constant product | Stableswap | etc
 
 4. Check proxy type:
-e.g UUPSUpgradeable | transparent proxy | beacon proxy | etc
+e.g UUPSUpgradeable, transparent proxy, beacon proxy, etc.
 
 5. Identify unique designs
-- idea: If the protocol has unique features, i understand them first before reviewing the code
+ idea: If the protocol has unique features, i understand them first before reviewing the code
 
 6. Read state variables & mappings
-- Idea: State variables and mappings names can vary from protocol to protocol, and some protocols may use complex names, so, understanding them helps me read every logic
+ Idea: State variables and mappings names can vary from protocol to protocol, and some protocols may use complex names, so, understanding them helps me read every logic
 
 7. Decode complex function names
-- Idea: some protocol uses complex function names, decoding them helps me understand the function purposes, e.g `epoch` means `vault` means `pool`
+ Idea: some protocol uses complex function names, decoding them helps me understand the function purposes, e.g `epoch` means `vault` means `pool`
 
 8. Draw function & asset flow
-- Idea: Drawing functions and assets flowchart helps me check expected vs actual code behavior
+ Idea: Drawing functions and assets flowchart helps me check expected vs actual code behavior
 
 9. Run Slither scan
 ```
@@ -89,9 +89,9 @@ admin withdrawals, setRewardRate()
 
 #### F. Proof Of Concepts
 ```solidity
-- Use Foundry to reproduce and test vulnerabilities
-- Write full unit + fuzz tests
-- Submit report with reproduction steps
+ Use Foundry to reproduce and test vulnerabilities
+ Write full unit + fuzz tests
+ Submit report with reproduction steps
 ```
 
 #### Conclusion
@@ -99,6 +99,6 @@ This is how I break down and deeply analyze complex DeFi protocols. I’m still 
 
 #### Tools I Use
 ```
-- Slither for static analysis 
-- Manual code review (I use the most)
-- Foundry for testing
+ Slither for static analysis 
+ Manual code review (I use the most)
+ Foundry for testing
