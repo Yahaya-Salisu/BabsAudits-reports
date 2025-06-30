@@ -28,10 +28,10 @@ e.g UUPSUpgradeable | transparent proxy | beacon proxy | etc
 - idea: If the protocol has unique features, i understand them first before reviewing the code
 
 6. Read state variables & mappings
-- Idea: Each protocol uses variables and mappings with different names, understanding them first helps me read every logic
+- Idea: State variables and mappings names can vary from protocol to protocol, and some protocols may use complex names, so, understanding them helps me read every logic
 
 7. Decode complex function names
-- Idea: some protocol uses complex function names, decoding them helps me understand the function purposes, e.g sync() means update()
+- Idea: some protocol uses complex function names, decoding them helps me understand the function purposes, e.g `epoch` means `vault` means `pool`
 
 8. Draw function & asset flow
 - Idea: Drawing functions and assets flowchart helps me check expected vs actual code behavior
