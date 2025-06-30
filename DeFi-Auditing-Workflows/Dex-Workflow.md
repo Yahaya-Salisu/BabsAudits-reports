@@ -73,8 +73,8 @@ This is the way I read AMM contracts from both user & protocol perspectives, ens
 
 #### F. Proof Of Concepts
 ```
-- run foundry test of the bugs
-- submit the reports and PoCs
+- Run foundry test of the bugs
+- Submit the reports and PoCs
 ```
 
 #### Tools I Use
