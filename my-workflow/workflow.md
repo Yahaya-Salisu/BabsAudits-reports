@@ -4,11 +4,16 @@ This document outlines my personal step-by-step approach when auditing complex D
 
 #### Coverage
 A. Architecture review
+
 B. LPs & Supplier functions
+
 C. Traders & user Functions
-D. Math model evaluations.
-E. Admin & system functions.
-F. Proof of concept testing.
+
+D. Math model evaluations
+
+E. Admin & system functions
+
+F. Proof of concept testing
 
 
 #### A. Protocol architecture review
