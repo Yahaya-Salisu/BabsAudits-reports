@@ -1,12 +1,13 @@
-**Contract hijack via unprotected initialize in SmartLoanViewFacet.sol**
+## [C-01] Contract hijack via unprotected initialize in SmartLoanViewFacet.sol
 
                
-_Bug Severity:_ Critical            
+_Severity:_ Critical            
 
 _Target:_ https://github.com/DeltaPrimeLabs/deltaprime-primeloans/blob/main/contracts%2Ffacets%2FSmartLoanViewFacet.sol#L41
 
 
-**Summary:**
+
+### Summary:
 
 DeltaPrime maintains all user's prime accounts in the pattern of “Proxy+implementation” where each prime account is a proxy pointing to the implementation contract. The implementation contract, i.e., “SmartLoanDiamondBeacon”, adheres to the EIP-2535 standard (Diamond) and can only be managed by the protocol owner. This means that if a malicious user can manage to become the owner of the "SmartLoanDiamondBeacon" contract, he can gain control over all users' Prime accounts.
 
@@ -27,7 +28,8 @@ I did indeed discover such a vulnerability. this vulnerability involves a facet 
 ```
 
 
-**Impact:**
+
+### Impact:
 
 With ownership of the “SmartLoanDiamondBeacon” contract, the hacker can arbitrarily modify the functionalities of the implementation for all prime accounts, enabling the hacker to steal all the protocol funds, including the funds in all DeltaPrime lending pools and all Prime Accounts. The estimated total loss is >$50M. For example, the hacker can add a “freeBorrow()” function to borrow all the lending pool funds without any solvency check.
 
@@ -35,7 +37,7 @@ Furthermore, once the owner of the “SmartLoanDiamondBeacon” contract is hija
 
 
 
-**Proof of concept (POC):**
+### Proof of concept (POC):
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -62,8 +64,7 @@ contract DeltaPrimePoC is Test {
 ```
 
 
----
 
-***PoC Output:***
+### Output:
 
 ![DeltaPrimePoCResult](https://github.com/user-attachments/assets/3436464d-6d50-4440-b657-2adb23f9dbb5)
