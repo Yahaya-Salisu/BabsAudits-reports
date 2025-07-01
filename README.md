@@ -6,15 +6,17 @@
  **DeFi Protocols**: (Dex, Staking, Lending, NFT Marketplace)
 
 ### Tools
-A. **Slither** for static analysis 
-B. **Manual Audit** for code review 
+A. **Slither** for static analysis
+
+B. **Manual Audit** for code review
+
 C. **Foundry** for fuzz test, contract interaction, and mainnet forking tests.
 
 ### Work Example:
-- I found Contract Hijack vulnerability in lending protocol
-- I found Access control vulnerability in lending protocol
-- I found Missing Return Value in Multiple Protocols
-- I found over borrowing & over-repay in lending protocol.
+A. I found Contract Hijack vulnerability in lending protocol
+B. I found Access control vulnerability in lending protocol
+C. I found Missing Return Value in Multiple Protocols
+D. I found over borrowing & over-repay in lending protocol.
 
 ### Contact:
 [WhatsApp](https://wa.me/qr/AOJIRGL4JCO7D1)
