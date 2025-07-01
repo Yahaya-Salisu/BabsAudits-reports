@@ -1,6 +1,7 @@
-**Contract hijack via unprotected initialize in Actions.sol**
+## [C-01] Contract hijack via unprotected initialize in Actions.sol
 
-_Bug Severity:_ Critical 
+
+_Severity_ Critical
 
 _Target:_ https://sonicscan.org/address/0x435Ab368F5fCCcc71554f4A8ac5F5b922bC4Dc06?utm_source=immunefi#code#F10#L43-53
 
@@ -8,7 +9,7 @@ _Target:_ https://sonicscan.org/address/0x435Ab368F5fCCcc71554f4A8ac5F5b922bC4Dc
 
 
 
-**Summary:**
+### Summary:
 
 Actions.sol acts as middleware in silo protocol, meaning if a user calls deposit or withdraw from silo.sol, the silo.sol will make an external call to Actions.sol, this contract handles multiple tasks such as:
 
@@ -16,8 +17,7 @@ accrueInterest, reentrancy protection, hook receiver, shareToken and asset addre
 
 
 
-
-**Vulnerability Details:**
+### Description:
 
 After deep manual reviews i found out that the  attacker can get access and hijack the Actions.sol via calling initialize with malicious Config, fake hook receiver, shareToken and asset addresses, because the initialize function is unprotected, it lacks onlyOwner or initializer from openzepplin, because of that, anyone can call it and hijack the contract.
 
@@ -41,7 +41,7 @@ Furthermore, the silo's admin forgot to call initialize manually and it was not 
 
 
 
-**Impact Details:**
+### Impact:
 
 - Attacker can fully hijack the Actions.sol contract by calling initialize() with malicious config.
 
@@ -54,7 +54,7 @@ Furthermore, the silo's admin forgot to call initialize manually and it was not 
 
 
 
-**Proof of Concept (POC)**
+### Proof of Concept (POC)
 
 The below PoC shows how an attacker called initialize function with malicious siloConfig, fake hook receiver, shareToken and asset addresses, finally the attacker became the owner of the Actions.sol contract.
 
@@ -101,7 +101,7 @@ contract SiloActionsInitialize is Test {
 ```
 
 
-**PoC Output:**
+### Output:
 
 
 ![PoC](https://github.com/user-attachments/assets/4c00c21a-3354-460d-9e61-5e8fd69fcc0c)
