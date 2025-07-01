@@ -1,6 +1,6 @@
 👋 Hi, I’m Yahaya Salisu
 
-## A Smart Contract Auditor
+### A Smart Contract Auditor
 
 #### My focus Areas:
  **DeFi Protocols**: (Dex, Staking, Lending, NFT Marketplace)
