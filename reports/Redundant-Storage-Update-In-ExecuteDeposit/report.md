@@ -1,4 +1,4 @@
-**Redundant storage update in executeDeposit function**
+## [L-01] Redundant storage update in executeDeposit function
 
 _Severity:_ Low
 
@@ -7,7 +7,7 @@ https://github.com/code-423n4/2025-06-panoptic/blob/main/src%2FHypoVault.sol#L31
 
 
 
-***Summary:***
+### Summary:
 
 `executeDeposit()` converts an active pending deposit into shares. the function saves user's deposit amount in `queuedDepositAmount` memory, and also the function updates user's balance in the storage
 
@@ -33,15 +33,15 @@ The function also re-updates the storage after minting shares in the same functi
 
 
 
-**Impact:**
+### Impact:
 
 Updating storage balance twice in the same function increases gas usage unnecessarily and removing it can help optimize the contract for better performance and lower user costs.
 
 
 
-***Recommendation:***
+### Recommendation:
 
 `queuedDeposit[user][epoch]` is unnecessarily written to 0 twice. Consider removing the redundant write to optimize gas usage.
 
-**Tools Used:**
+### Tools Used:
 Manual code review.
