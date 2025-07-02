@@ -45,4 +45,4 @@ Let's discuss your project! I'm always open to building secure DeFi together.
 | [LinkedIn](https://www.linkedin.com/in/yahaya-salisu)
 | [Twitter/X](https://x.com/Babs_Crypto1?t=Vc6SgVuVgS8FxbVUZZXHVw&s=09)
 
-Email: yahayasalisu162@gmail.com
+Email: yahayasalisubabs@gmail.com
