@@ -32,7 +32,7 @@ I'm currently **open to**:
 -  Freelance / Bug Bounty-based work
 
 You can hire me to audit your DeFi protocol at **affordable rates**.  
-I offer *per-contract* or *per-week* pricing based on your scope and budget.
+I offer *per-contract*, *per-hour* or *per-week* pricing based on your scope and budget.
 
 Let's discuss your project! I'm always open to building secure DeFi together.
 
