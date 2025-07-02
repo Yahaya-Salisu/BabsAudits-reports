@@ -37,19 +37,19 @@ This document outlines my personal step-by-step approach to auditing complex DeF
 
 ###  Logic-Level Review
 1. **LP Functions**  
-`supply() → claim() → withdraw()`
+`supply() → claim() → withdraw()`.
 
 2. **User Functions**  
-`swap(), stake() → unstake(), borrow() → repay() → liquidate()`
+`swap(), stake() → unstake(), borrow() → repay() → liquidate()`.
 
 3. **Math Functions**  
-`interest math, getReserves(), TWAP, sharePrice(), getSqrtRatioAtTick()`, etc.
+`interest math, liquidation math, TWAP and Oracle, sharePrice(), getSqrtRatioAtTick()`, etc.
 
 4. **Admin Functions**  
 `initialize() → setFee() → setCollateralFactor() → setAdmin()` etc.
 
 5. **System Functions**  
-`deposit() → mint() → transfer() → transferFrom() → burn()`
+`deposit() → mint() → transfer() → transferFrom() → burn()`.
 
 
 
