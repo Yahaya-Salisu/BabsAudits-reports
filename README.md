@@ -1,6 +1,8 @@
 👋 Hi, I’m Yahaya Salisu
 
-#### Smart Contract Auditor and Specialized in DeFi Security
+#### Smart Contract Auditor
+
+I specialized in DeFi Security
 
 
 ### Focus Areas
