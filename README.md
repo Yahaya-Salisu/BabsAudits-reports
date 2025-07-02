@@ -1,4 +1,4 @@
-### Hi, I’m Yahaya Salisu
+👋 Hi, I’m Yahaya Salisu
 
 #### Smart Contract Auditor and Specialized in DeFi Security
 
