@@ -1,4 +1,4 @@
-# 👋 Hi, I’m Yahaya Salisu
+## Hi, I’m Yahaya Salisu
 
 ### Smart Contract Auditor and Specialized in DeFi Security
 
@@ -38,7 +38,7 @@ I offer *per-contract* or *per-week* pricing based on your scope and budget.
 ### Contact Me:
 
 [WhatsApp](https://wa.me/qr/AOJIRGL4JCO7D1)
- [LinkedIn](https://www.linkedin.com/in/yahaya-salisu)
- [Twitter/X](https://x.com/Babs_Crypto1?t=Vc6SgVuVgS8FxbVUZZXHVw&s=09)
+| [LinkedIn](https://www.linkedin.com/in/yahaya-salisu)
+| [Twitter/X](https://x.com/Babs_Crypto1?t=Vc6SgVuVgS8FxbVUZZXHVw&s=09)
 
-Email: `yahayasalisu162@gmail.com`
+Email: yahayasalisu162@gmail.com
