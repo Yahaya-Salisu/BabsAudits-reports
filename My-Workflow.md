@@ -12,7 +12,7 @@ This document outlines my personal step-by-step approach to auditing complex DeF
    Idea: Developers often repeat mistakes from the original protocol.
 
 3. **If it's a DEX, identify the AMM type**  
-   e.g., x*y=k, Constant Product, Stableswap, Curve-style, etc.
+   e.g., x*y=k, LBAMM, Constant Product, Stableswap, Curve-style, etc.
 
 4. **Check proxy pattern**  
    e.g., UUPSUpgradeable, Transparent Proxy, Beacon Proxy, etc.
