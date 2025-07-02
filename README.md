@@ -2,7 +2,8 @@
 
 #### Smart Contract Auditor and Specialized in DeFi Security
 
-#### Focus Areas
+
+### Focus Areas
 I audit and analyze the following protocol types:
 
 1. Decentralized Exchanges (DEXs)
@@ -10,12 +11,14 @@ I audit and analyze the following protocol types:
 3. Lending Protocols
 4. NFT Marketplaces
 
-#### Tools & Techniques
+
+### Tools & Techniques
 1. **Slither** for static analysis  
 2. **Manual code review** (my strongest skill)  
 3. **Foundry**: for Fuzz testing, Unit testing, Mainnet forking, Interactive PoCs
 
-#### Track Record:
+
+### Track Record:
 1. I found Contract Hijack vulnerability in lending protocol
 2. I found Access control vulnerability in lending protocol
 3. I found Missing Return Value in Multiple Protocols
@@ -36,7 +39,6 @@ Let's discuss your project! I'm always open to building secure DeFi together.
 
 
 ### Contact Me:
-
 [WhatsApp](https://wa.me/qr/AOJIRGL4JCO7D1)
 | [LinkedIn](https://www.linkedin.com/in/yahaya-salisu)
 | [Twitter/X](https://x.com/Babs_Crypto1?t=Vc6SgVuVgS8FxbVUZZXHVw&s=09)
