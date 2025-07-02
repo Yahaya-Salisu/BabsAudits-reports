@@ -1,6 +1,6 @@
-## Hi, I’m Yahaya Salisu
+### Hi, I’m Yahaya Salisu
 
-### Smart Contract Auditor and Specialized in DeFi Security
+#### Smart Contract Auditor and Specialized in DeFi Security
 
 #### Focus Areas
 I audit and analyze the following protocol types:
@@ -31,7 +31,7 @@ I'm currently **open to**:
 You can hire me to audit your DeFi protocol at **affordable rates**.  
 I offer *per-contract* or *per-week* pricing based on your scope and budget.
 
-> Let's discuss your project! I'm always open to building secure DeFi together.
+Let's discuss your project! I'm always open to building secure DeFi together.
 
 
 
