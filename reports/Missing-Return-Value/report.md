@@ -1,6 +1,6 @@
-**Missing Return Value for Non-Compliant ERC20 Tokens in CToken.sol**
+**[M-01] Missing Return Value for Non-Compliant ERC20 Tokens in CToken.sol**
 
-_Bug Severity:_ Medium
+_Severity:_ Medium
 
 _Target:_
 https://github.com/compound-finance/compound-protocol/blob/master/contracts%2FCToken.sol#L111
@@ -18,13 +18,7 @@ The contract uses transfer() and transferFrom() on non-compliant EERC20 tokens s
 - Funds may fail to transfer without reverting
 - Logic that assumes a successful transfer may proceed incorrectly.
 
-
   
-**Recommendation:**
-
-Use safeTreansfer and safeTransferFrom to support non ERC20 standerd tokens
-
-
 
 **Proof of concept (PoC)**
 
@@ -63,3 +57,8 @@ assertEq(userBalance, 0, "Transfer failed silently but acting as it succe, missi
 ***PoC Output:***
 
 ![PoC](https://github.com/user-attachments/assets/5077f239-7e2c-4a2e-87a0-de1a07035cb8)
+
+
+**Recommendation:**
+
+Use safeTreansfer and safeTransferFrom to support non ERC20 standerd tokens
