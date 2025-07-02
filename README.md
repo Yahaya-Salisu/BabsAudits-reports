@@ -13,7 +13,7 @@ I audit and analyze the following protocol types:
 #### Tools & Techniques
 1. **Slither** for static analysis  
 2. **Manual code review** (my strongest skill)  
-3. **Foundry** for: Fuzz testing, Unit testing, Mainnet forking, Interactive PoCs
+3. **Foundry**: for Fuzz testing, Unit testing, Mainnet forking, Interactive PoCs
 
 #### Track Record:
 1. I found Contract Hijack vulnerability in lending protocol
