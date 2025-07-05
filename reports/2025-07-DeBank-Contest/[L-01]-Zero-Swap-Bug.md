@@ -46,3 +46,7 @@ Add a check to prevent zero-amount swaps before proceeding with transfer and exe
 require(fromTokenAmount > 0, "Router: zero amount");
 ```
 Place the check before any fee logic or external calls (especially transferFrom or executeMegaSwap) to ensure safe and intentional execution.
+
+
+### Tools Used:
+Manual Code review.
