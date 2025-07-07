@@ -1,4 +1,4 @@
-## [L-01] Redundant storage update in executeDeposit function
+### [L-01] Redundant storage update in executeDeposit function
 
 _Severity:_ Low
 
