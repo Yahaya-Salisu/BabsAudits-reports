@@ -2,16 +2,7 @@
 
 #### Smart Contract Auditor
 
-I specialized in DeFi Security
-
-
-### Focus Areas
-I audit and analyze the following protocol types:
-
-1. Decentralized Exchanges (DEXs)
-2. Staking Mechanisms
-3. Lending Protocols
-4. NFT Marketplaces
+I specialize in Solidity and EVM-based smart contract security. My work spans across DeFi protocols, including DEXs, lending, staking, RWA, NFT marketplaces, and reward systems. I'm comfortable with unfamiliar protocols, analyzing complex vault logic, modular architectures, and custom tokenomics.
 
 
 ### Tools & Techniques
