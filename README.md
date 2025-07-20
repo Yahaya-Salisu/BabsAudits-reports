@@ -1,4 +1,4 @@
-👋 Hi, I’m Yahaya Salisu
+_Hi, I’m Yahaya Salisu_
 
 #### Smart Contract Auditor
 
