@@ -14,18 +14,19 @@ I specialize in Solidity and EVM-based smart contract security. My work spans ac
 ### Track Record:
 1. I found Contract Hijack vulnerability in lending protocol
 2. I found Access control vulnerability in lending protocol
-3. I found Missing Return Value in Multiple Protocols
+3. I found false deposit and over-redemption bug in staking systems.
 4. I found over borrowing & over-repay in lending protocol.
+5. I found unauthorized fee deduction in Dex 
 
 
 ### Availability
-I'm currently **open to**:
+I'm currently **open to**
 -  Full-time roles (Remote or Hybrid)
 -  Part-time positions
 -  Freelance / Bug Bounty-based work
 
-You can hire me to audit your DeFi protocol at **affordable rates**.  
-I offer *per-contract*, *per-hour* or *per-week* pricing based on your scope and budget.
+You can hire me to audit your smart contract at **affordable rates**.  
+I offer *per-contract*, *per-hour* and *per-week* pricing based on your scope and budget.
 
 Let's discuss your project! I'm always open to building secure DeFi together.
 
