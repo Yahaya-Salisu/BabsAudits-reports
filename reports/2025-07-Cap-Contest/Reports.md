@@ -1,6 +1,6 @@
 | ID                                                                                                               | Title                                                                                                        |
 | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| [L-01](#l-01-Missing-zero-amount-protection-may-lead-to-gas-wastage-or-unexpected-executor-calls)                       |  Missing zero-amount protection may lead to gas wastage or unexpected executor calls.                               |
+| [L-01](#l-01-Missing-zero-amount-protection-may-lead-to-gas-wastage-or-unexpected-executor-calls)                       |Missing zero-amount protection may lead to gas wastage or unexpected executor calls.                               |
 | [L-02](#l-02-Missing-zero-swap-check-may-lead-to-gas-wastage-or-unexpected-executor-calls)                              | Missing zero-swap check may lead to gas wastage or unexpected executor calls
 
 
