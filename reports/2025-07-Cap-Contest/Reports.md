@@ -2,7 +2,7 @@
 | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | [H-01](#h-01-repay()-function-allows-arbitrary-third-party-to-repay-on-behalf-of-agent-without-authorization) 
 | repay() function allows arbitrary third-party to repay on behalf of agent without authorization
-|
+
 | [H-02](#h-02-removeAsset()-function-leads-to-permanent-loss-of-funds-and-interest-for-depositors)
 | removeAsset() function leads to permanent loss of funds and interest for depositors
 
