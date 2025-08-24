@@ -1,7 +1,10 @@
 | ID                                                                                                               | Title                                                                                                        |
 | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| [L-01](#l-01-Missing-zero-amount-protection-may-lead-to-gas-wastage-or-unexpected-executor-calls)                       |Missing zero-amount protection may lead to gas wastage or unexpected executor calls.                               |
-| [L-02](#l-02-Missing-zero-swap-check-may-lead-to-gas-wastage-or-unexpected-executor-calls)                              | Missing zero-swap check may lead to gas wastage or unexpected executor calls
+| [H-01](#h-01-repay()-function-allows-arbitrary-third-party-to-repay-on-behalf-of-agent-without-authorization)
+| repay() function allows arbitrary third-party to repay on behalf of agent without authorization
+|
+| [H-02](#h-02-removeAsset()-function-leads-to-permanent-loss-of-funds-and-interest-for-depositors)
+| removeAsset() function leads to permanent loss of funds and interest for depositors                                                                 
 
 
 #### [H-01] repay() function allows arbitrary third-party to repay on behalf of agent without authorization
