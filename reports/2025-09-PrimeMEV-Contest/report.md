@@ -1,4 +1,4 @@
-Silent bid reduction in openBid can cause unexpected behavior and settlement mismatches
+#### Silent bid reduction in openBid can cause unexpected behavior and settlement mismatches
 
 _Severity_: Medium
 _Likelihood_: Medium
