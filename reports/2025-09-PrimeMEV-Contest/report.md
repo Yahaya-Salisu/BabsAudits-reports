@@ -1,6 +1,7 @@
 ## Silent bid reduction in openBid can cause unexpected behavior and settlement mismatches
 
 _Severity_: Medium
+
 _Likelihood_: Medium
 
 ### Description
@@ -10,6 +11,7 @@ This silent adjustment breaks the assumption that the committed bid is always ho
 
 ### Impact:
 The openBid function currently allows a situation where a bidder specifies a bidAmt greater than their availableAmount. Instead of reverting, the function silently reduces bidAmt to deposit.availableAmount and continues execution:
+
 ```solidity
 if (deposit.availableAmount < bidAmt) {
     bidAmt = deposit.availableAmount;
@@ -17,7 +19,7 @@ if (deposit.availableAmount < bidAmt) {
 }
 ```
 
-This behavior introduces several risks:
+#### This behavior introduces several risks:
 
 1. Commit/Reveal mismatch: Off-chain systems (builders/validators) may assume the committed bid value is the one used, but the on-chain contract reduces it.
 
