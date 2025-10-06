@@ -1,7 +1,7 @@
 Silent bid reduction in openBid can cause unexpected behavior and settlement mismatches
 
-### Severity: Medium
-### Likelihood: Medium
+_Severity_: Medium
+_Likelihood_: Medium
 
 ### Description
 The openBid function allows a bidder to submit a bid (bidAmt) greater than their current availableAmount. Instead of reverting, the contract silently reduces bidAmt to deposit.availableAmount and proceeds.
