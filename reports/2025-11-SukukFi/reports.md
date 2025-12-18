@@ -19,4 +19,4 @@
 | [NFT Marketplace](https://github.com/Yahaya-Salisu/naira_nft_marketPlace) | 2025 | Full-featured NFT marketplace supporting listing, delisting, buying, selling, and marketplace fees | Solidity, Foundry | Sepolia |
 | [Staking System](https://github.com/Yahaya-Salisu/naira_staking) | 2025 | Flexible staking system with reward distribution, lock-up periods, and emergency withdrawal | Solidity, Foundry | Sepolia |
 | [Lending Protocol](https://github.com/Yahaya-Salisu/naira_lending) | 2025 | Overcollateralized lending protocol with borrow, repay, liquidation, and interest rate logic | Solidity, Foundry | Sepolia |
-| [Flash USDn (ERC20)](https://github.com/Yahaya-Salisu/naira_flash_token) | 2025 | ERC20-based flash-mint stablecoin enabling flash loans with fee enforcement and invariant checks | Solidity, Foundry | Local |
+| [Flash USDn (ERC20)](https://github.com/Yahaya-Salisu/naira_flash_token) | 2025 | ERC20-based flash-token that expires after 30 minutes of minting and disappears from the wallet once a user initiates interaction | Solidity, Foundry | [Sepolia](https://sepolia.etherscan.io/token/0x72396eF5496A0057889e17C8232d19c1f253Eb6f)|
